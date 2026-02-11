@@ -1,0 +1,26 @@
+# Environment and secrets
+.env
+**/.env
+*.secret.*
+*.token
+*.pem
+*.key
+
+# OpenCode and auth storage
+.local/share/opencode/auth.json
+**/opencode-auth.json
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Node
+node_modules/
+dist/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
