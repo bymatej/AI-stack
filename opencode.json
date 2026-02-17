@@ -1,0 +1,85 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "watcher": {
+    "ignore": [
+      "node_modules/**",
+      "dist/**",
+      ".git/**",
+      ".venv/**",
+      "__pycache__/**",
+      ".pytest_cache/**"
+    ]
+  },
+  "models": {
+    "aliases": {
+      "fast": "${OPENCODE_MODEL_FAST}",
+      "strong": "${OPENCODE_MODEL_STRONG}",
+      "cheap": "${OPENCODE_MODEL_CHEAP}"
+    }
+  },
+  "mcp": {
+    "atlassian": {
+      "command": "${MCP_ATLASSIAN_COMMAND}",
+      "args": ["${MCP_ATLASSIAN_ARGS}"],
+      "env": {
+        "ATLASSIAN_BASE_URL": "${ATLASSIAN_BASE_URL}",
+        "ATLASSIAN_EMAIL": "${ATLASSIAN_EMAIL}",
+        "ATLASSIAN_API_TOKEN": "${ATLASSIAN_API_TOKEN}"
+      }
+    },
+    "trello": {
+      "command": "${MCP_TRELLO_COMMAND}",
+      "args": ["${MCP_TRELLO_ARGS}"],
+      "env": {
+        "TRELLO_API_KEY": "${TRELLO_API_KEY}",
+        "TRELLO_TOKEN": "${TRELLO_TOKEN}"
+      }
+    },
+    "github": {
+      "command": "${MCP_GITHUB_COMMAND}",
+      "args": ["${MCP_GITHUB_ARGS}"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "gitlab": {
+      "command": "${MCP_GITLAB_COMMAND}",
+      "args": ["${MCP_GITLAB_ARGS}"],
+      "env": {
+        "GITLAB_TOKEN": "${GITLAB_TOKEN}",
+        "GITLAB_BASE_URL": "${GITLAB_BASE_URL}"
+      }
+    },
+    "filesystem": {
+      "command": "${MCP_FILESYSTEM_COMMAND}",
+      "args": ["${MCP_FILESYSTEM_ARGS}"],
+      "env": {
+        "FILESYSTEM_ROOT": "${FILESYSTEM_ROOT}"
+      }
+    },
+    "web-search": {
+      "command": "${MCP_WEB_SEARCH_COMMAND}",
+      "args": ["${MCP_WEB_SEARCH_ARGS}"],
+      "env": {
+        "BRAVE_SEARCH_API_KEY": "${BRAVE_SEARCH_API_KEY}",
+        "DUCKDUCKGO_REGION": "${DUCKDUCKGO_REGION}"
+      }
+    },
+    "postgres": {
+      "command": "${MCP_POSTGRES_COMMAND}",
+      "args": ["${MCP_POSTGRES_ARGS}"],
+      "env": {
+        "DATABASE_URL": "${DATABASE_URL}",
+        "POSTGRES_SSLMODE": "${POSTGRES_SSLMODE}"
+      }
+    },
+    "aws": {
+      "command": "${MCP_AWS_COMMAND}",
+      "args": ["${MCP_AWS_ARGS}"],
+      "env": {
+        "AWS_PROFILE": "${AWS_PROFILE}",
+        "AWS_REGION": "${AWS_REGION}"
+      }
+    }
+  }
+}

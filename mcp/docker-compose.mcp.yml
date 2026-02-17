@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: mcp-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mcp
+      POSTGRES_PASSWORD: mcp
+      POSTGRES_DB: mcp
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_mcp_data:/var/lib/postgresql/data
+
+  mcp-filesystem:
+    image: node:20-alpine
+    container_name: mcp-filesystem
+    working_dir: /workspace
+    command: ["sh", "-lc", "npx -y @modelcontextprotocol/server-filesystem /workspace"]
+    volumes:
+      - ..:/workspace
+    restart: unless-stopped
+
+  mcp-postgres:
+    image: node:20-alpine
+    container_name: mcp-postgres-server
+    working_dir: /workspace
+    command: ["sh", "-lc", "npx -y @modelcontextprotocol/server-postgres"]
+    environment:
+      DATABASE_URL: postgresql://mcp:mcp@postgres:5432/mcp
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  postgres_mcp_data:
